@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estilo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    <script src="app.js" async></script>
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    <title>Compra Productos | </title>
+    <style>
+        .categorias {
+            margin: 50px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .categorias button {
+            padding: 20px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            width: 130px;
+        }
+        .btn-todos { background-color: #b63737; }
+        .btn-ropa { background-color: #326fad; }
+        .btn-juguetes { background-color: #b94b37; }
+        .btn-electrodomesticos { background-color: #31b831; }
+        .btn-muebles { background-color: #bea92c; }
+        .btn-accesorios { background-color: #b92670; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="compra y recompra_transparent.png" alt="Compra y Recompra">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="compra.html">Compra</a>
+                <a href="metpagos.html">Métodos de Pago</a>
+                <a href="nosotros.html">Nosotros</a>
+            </div>
+        </nav>
+    </header>
+    <section class="contenedor">
+        <div class="categorias">
+            <button class="btn-todos" onclick="filtrarCategoria('todos')">Todos</button>
+            <button class="btn-ropa" onclick="filtrarCategoria('ropa')">Ropa</button>
+            <button class="btn-juguetes" onclick="filtrarCategoria('juguetes')">Juguetes</button>
+            <button class="btn-electrodomesticos" onclick="filtrarCategoria('electrodomesticos')">Electrodomésticos</button>
+            <button class="btn-muebles" onclick="filtrarCategoria('muebles')">Muebles</button>
+            <button class="btn-accesorios" onclick="filtrarCategoria('accesorios')">Accesorios</button>
+        </div>
+        <div class="contenedor-items">
+           
+            <div class="item" data-stock="10" data-categoria="ropa">
+                <span class="titulo-item">Zapatilla-ADIDAS</span>
+                <img src="1.jpg" alt="" class="img-item">
+                <span class="precio-item">S/.35</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item" data-stock="5" data-categoria="juguetes">
+                <span class="titulo-item">Barbie coleccion 1960</span>
+                <img src="2.jpg" alt="" class="img-item">
+                <span class="precio-item">S/.70</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item" data-stock="8" data-categoria="ropa">
+                <span class="titulo-item">Polera blanca marca agustinos</span>
+                <img src="3.jpg" alt="" class="img-item">
+                <span class="precio-item">S/.30</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item" data-stock="12" data-categoria="muebles">
+                <span class="titulo-item">Sofá cuero negro</span>
+                <img src="4.jpg" alt="" class="img-item">
+                <span class="precio-item">S/.120</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item" data-stock="4" data-categoria="electrodomesticos">
+                <span class="titulo-item">Tostadora</span>
+                <img src="5.jpg" alt="" class="img-item">
+                <span class="precio-item">S/.38</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item" data-stock="7" data-categoria="accesorios">
+                <span class="titulo-item">Caja china meet master</span>
+                <img src="6.jpg" alt="" class="img-item">
+                <span class="precio-item">S/.150</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item" data-stock="6" data-categoria="juguetes">
+                <span class="titulo-item">Hot wheels GB</span>
+                <img src="7.jpg" alt="" class="img-item">
+                <span class="precio-item">S/.8</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item" data-stock="9" data-categoria="accesorios">
+                <span class="titulo-item">Lentes de sol swro</span>
+                <img src="8.jpg" alt="" class="img-item">
+                <span class="precio-item">S/.30</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item" data-stock="3" data-categoria="electrodomesticos">
+                <span class="titulo-item">Radio con antena</span>
+                <img src="9.jpg" alt="" class="img-item">
+                <span class="precio-item">S/.23</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+        </div>
+        <div class="carrito" id="carrito">
+            <div class="header-carrito">
+                <h2>Tu Carrito</h2>
+            </div>
+            <div class="carrito-items">
+            </div>
+            <div class="carrito-total">
+                <div class="fila">
+                    <strong>Tu Total</strong>
+                    <span class="carrito-precio-total">$0,00</span>
+                </div>
+                <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+        </div>
+        
+        <div id="boleta" class="boleta" style="display:none;">
+            <div class="boleta-contenido">
+                <h2>Boleta de Compra</h2>
+                <div id="boleta-items"></div>
+                <div class="boleta-total">
+                    <strong>Total a Pagar:</strong>
+                    <span id="boleta-total">$0,00</span>
+                </div>
+                <button onclick="ocultarBoleta()">Cerrar</button>
+            </div>
+        </div>
+    </section>
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <img src="compra y recompra_transparent.png" alt="Logo de SLee Dw">
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>NUESTRA MISION</h2>
+                <p>
+                    Compra y Recompra nace con la finalidad de proporcionar una plataforma segura y fácil de usar para todos. Queremos:
+                    <p>Promover la reutilización de productos, evitando que objetos útiles terminen en la basura.</p>
+                    <p>Fomentar un consumo responsable, haciendo que cada compra y venta tenga un impacto positivo en el medio ambiente.</p>
+                    <p>Crear una comunidad sostenible, donde cada miembro pueda contribuir al cambio y encontrar valor en los productos de segunda mano.</p>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="https://www.facebook.com/profile.php?id=61562533695282" class="fa fa-facebook" target="_blank" title="Síguenos en Facebook"></a>
+                    <a href="https://www.instagram.com/compra_y_venta_3?igsh=MW5meTBsaWtxOWtmcg%3D%3D" class="fa fa-instagram" target="_blank" title="Síguenos en Instagram"></a>
+                    <a href="https://wa.me/927853017" class="fa fa-whatsapp" target="_blank" title="Contáctanos por WhatsApp"></a>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2024 <b>Compra y Venta</b> - Todos los Derechos Reservados.</small>
+        </div>
+    </footer>
+    <script>
+        function filtrarCategoria(categoria) {
+            const items = document.querySelectorAll('.contenedor-items .item');
+            items.forEach(item => {
+                if (categoria === 'todos' || item.getAttribute('data-categoria') === categoria) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

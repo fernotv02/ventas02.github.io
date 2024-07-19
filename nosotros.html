@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: #f04e23;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #f04e23;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid white;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .profile {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .profile-card {
+            background: #f04e23;
+            border: 2px solid rgb(234, 225, 225);
+            border-radius: 10px;
+            box-shadow: 0 0 15px _blank(228, 179, 53, 0.5);
+            width: 250px;
+            text-align: center;
+            margin: 15px;
+            padding: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .profile-card img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 4px solid white;
+        }
+        .profile-card h3 {
+            margin: 10px 0;
+            color: rgb(230, 222, 222);
+        }
+        .profile-card a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .profile-card a:hover {
+            text-decoration: underline;
+        }
+        .profile-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Conoce a Nuestro Equipo</h1>
+    </header>
+
+    <div class="container">
+        <div class="profile">
+            
+            <div class="profile-card">
+                <img src="cieza.jpg" alt="Nombre Integrante 1">
+                <h3>Fernandez Cieza Luis Fernando</h3>
+                <a href="https://www.facebook.com/profile.php?id=61561190346631&mibextid=ZbWKwL" target="_blank">Facebook</a>
+            </div>
+
+            
+            <div class="profile-card">
+                <img src="cabrera,jpg.jpeg" alt="Nombre Integrante 2">
+                <h3>Cabrera Rosales Andre Valentino</h3>
+                <a href="https://www.facebook.com/profile.php?id=100009107349159&mibextid=ZbWKwL" target="_blank">Facebook</a>
+            </div>
+
+            
+            <div class="profile-card">
+                <img src="diego2.jpg" alt="Nombre Integrante 3">
+                <h3>Castro Mallqui Diego Kluivert</h3>
+                <a href="https://www.facebook.com/profile.php?id=100008955499203&locale=es_LA" target="_blank">Facebook</a>
+            </div>
+                
+                <div class="profile-card">
+                    <img src="lilian.jpg" alt="Nombre Integrante 4">
+                    <h3>Zegarra Masgo Lilian</h3>
+                    <a href="https://www.facebook.com/liliana.zegarramasgo.5/?locale=es_LA" target="_blank">Facebook</a>
+                </div>
+
+        </div>
+    </div>
+</body>
+</html>
